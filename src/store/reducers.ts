@@ -1,5 +1,4 @@
 import { connectRouter, RouterState } from 'connected-react-router'
-import { History } from 'history'
 import { combineReducers } from 'redux'
 import { exampleReducer, ExampleState } from './example/reducer'
 import { factReducer, FactState, FACT_STATE_KEY } from './fact'
@@ -14,7 +13,7 @@ export type AppState = {
   example: ExampleState
 }
 
-export default (history: History<History.PoorMansUnknown>) =>
+export default (history: any) =>
   combineReducers({
     [FACT_STATE_KEY]: factReducer,
     [LIST_STATE_KEY]: listReducer,

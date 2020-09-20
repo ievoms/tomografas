@@ -12,7 +12,9 @@ export const GifPage: React.FC<GifPageProps> = ({ gifSrc }) => {
       <Header text="Sekite instrukcijas" />
       <Container>
         <BackButton />
-        <Gif src={gifSrc}></Gif>
+        <Video autoPlay loop muted>
+          <source src={gifSrc} type="video/mp4" />
+        </Video>
       </Container>
     </Column>
   )
@@ -21,6 +23,6 @@ const Container = styled(Column)`
   max-width: 1200px;
   width: 100%;
 `
-const Gif = styled.img`
+const Video = styled.video`
   height: 500px;
 `
