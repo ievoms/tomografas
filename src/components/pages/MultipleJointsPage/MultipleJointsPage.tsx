@@ -1,5 +1,5 @@
 import React from 'react'
-import { BackButton, BodyPartButton, Header } from 'components/molecules'
+import { BodyPartButton, Header } from 'components/molecules'
 import styled from '@emotion/styled'
 import { Column, Row } from 'components/atoms'
 

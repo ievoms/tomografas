@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Column, Row, Text } from 'components/atoms'
+import { Row, Text } from 'components/atoms'
 import { BackButton } from '../BackButton'
 
 interface HeaderProps {

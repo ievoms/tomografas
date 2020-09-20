@@ -1,7 +1,7 @@
 import App from 'App'
 import { ConnectedRouter } from 'connected-react-router'
 import { ThemeProvider } from 'emotion-theming'
-import React, { Suspense } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Route, Switch } from 'react-router'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Column } from 'components/atoms'
-import { Header, BackButton } from 'components/molecules'
+import { Header } from 'components/molecules'
 import styled from '@emotion/styled'
 
 interface GifPageProps {
