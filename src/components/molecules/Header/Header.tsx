@@ -1,13 +1,17 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Row, Text } from 'components/atoms'
+import { Column, Row, Text } from 'components/atoms'
+import { BackButton } from '../BackButton'
 
 interface HeaderProps {
   text: string
+  showButton?: boolean
 }
-export const Header: React.FC<HeaderProps> = ({ text }) => (
+
+export const Header: React.FC<HeaderProps> = ({ text, showButton }) => (
   <Container justify="center">
-    <TextContainer>
+    <TextContainer align="center">
+      {showButton && <BackButton />}
       <Text>{text}</Text>
     </TextContainer>
   </Container>

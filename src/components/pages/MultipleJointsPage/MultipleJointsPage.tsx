@@ -10,9 +10,8 @@ export const MultipleJointsPage: React.FC<MultipleJointsPageProps> = ({
   joints,
 }) => (
   <Content align="center" justify="center" width="100%">
-    <Header text="Pasirinkite tyrimo vietą" />
+    <Header text="Pasirinkite tyrimo vietą" showButton={true} />
     <Column>
-      <BackButton />
       <ImageButtonsContainer justify="space-between">
         {joints.map(joint => (
           <Column>

@@ -51,11 +51,11 @@ const wristJoints = [
     href: 'wrist/dart-throwing',
     src: dartThrowingFoto,
   },
-  {
-    name: 'Prono-supination',
-    href: 'wrist/prono-supination',
-    src: pronoSupinationFoto,
-  },
+  // {
+  //   name: 'Prono-supination',
+  //   href: 'wrist/prono-supination',
+  //   src: pronoSupinationFoto,
+  // },
 ]
 const shoulderJoints = [
   {

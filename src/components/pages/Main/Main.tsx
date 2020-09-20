@@ -10,7 +10,7 @@ import styled from '@emotion/styled'
 
 export const Main: React.FC = () => (
   <Column align="center" justify="center" width="100%">
-    <Header text="Pasirinkite tyrimo vietą" />
+    <Header text="Pasirinkite tyrimo vietą" showButton={false} />
     <ImageButtonsContainer justify="space-between">
       <BodyPartButton href="wrist" src={wrist} />
       <BodyPartButton href="foot" src={foot} />

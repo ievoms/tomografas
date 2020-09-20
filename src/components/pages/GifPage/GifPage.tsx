@@ -9,9 +9,9 @@ interface GifPageProps {
 export const GifPage: React.FC<GifPageProps> = ({ gifSrc }) => {
   return (
     <Column align="center">
-      <Header text="Sekite instrukcijas" />
+      <Header text="Sekite instrukcijas" showButton={true} />
+
       <Container>
-        <BackButton />
         <Video autoPlay loop muted>
           <source src={gifSrc} type="video/mp4" />
         </Video>
