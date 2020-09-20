@@ -110,7 +110,7 @@ const AppComponent: React.FC = () => {
             component={() => <MultipleJointsPage joints={shoulderJoints} />}
           />
           <Route path="/hip" component={() => <GifPage gifSrc={hip} />} />
-          <Route component={Main} />
+          <Route path="/" component={Main} />
         </Switch>
       </Router>
     </div>
