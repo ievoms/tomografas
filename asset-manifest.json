@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.js": "http://localhost:3000/static/js/main.6a45d64b.chunk.js",
+    "main.js.map": "http://localhost:3000/static/js/main.6a45d64b.chunk.js.map",
+    "runtime-main.js": "http://localhost:3000/static/js/runtime-main.716d304a.js",
+    "runtime-main.js.map": "http://localhost:3000/static/js/runtime-main.716d304a.js.map",
+    "static/js/2.01388019.chunk.js": "http://localhost:3000/static/js/2.01388019.chunk.js",
+    "static/js/2.01388019.chunk.js.map": "http://localhost:3000/static/js/2.01388019.chunk.js.map",
+    "index.html": "http://localhost:3000/index.html",
+    "precache-manifest.9b194b08845c5a8f79ae6c0651f7c3a4.js": "http://localhost:3000/precache-manifest.9b194b08845c5a8f79ae6c0651f7c3a4.js",
+    "service-worker.js": "http://localhost:3000/service-worker.js",
+    "static/js/2.01388019.chunk.js.LICENSE.txt": "http://localhost:3000/static/js/2.01388019.chunk.js.LICENSE.txt",
+    "static/media/back.svg": "http://localhost:3000/static/media/back.03499e1e.svg",
+    "static/media/clenching-fist-foto.jpg": "http://localhost:3000/static/media/clenching-fist-foto.093a56b2.jpg",
+    "static/media/clenching-fist.mp4": "http://localhost:3000/static/media/clenching-fist.ffce5508.mp4",
+    "static/media/dart-throwing-foto.jpg": "http://localhost:3000/static/media/dart-throwing-foto.5ff6618e.jpg",
+    "static/media/dart-throwing.mp4": "http://localhost:3000/static/media/dart-throwing.39fcbbbb.mp4",
+    "static/media/foot.png": "http://localhost:3000/static/media/foot.0bc186f9.png",
+    "static/media/foot.mp4": "http://localhost:3000/static/media/foot.cf646e0c.mp4",
+    "static/media/hand.png": "http://localhost:3000/static/media/hand.7c307124.png",
+    "static/media/hip.jpg": "http://localhost:3000/static/media/hip.1518b81d.jpg",
+    "static/media/hip.mp4": "http://localhost:3000/static/media/hip.65ae67e6.mp4",
+    "static/media/knee.mp4": "http://localhost:3000/static/media/knee.cfe16f88.mp4",
+    "static/media/prono-supination.mp4": "http://localhost:3000/static/media/prono-supination.79c12c9f.mp4",
+    "static/media/radioulnar-deviation-foto.jpg": "http://localhost:3000/static/media/radioulnar-deviation-foto.f9bfc4f4.jpg",
+    "static/media/radioulnar-deviation.mp4": "http://localhost:3000/static/media/radioulnar-deviation.3380f140.mp4",
+    "static/media/scapulothoracic-joint-round-foto.jpg": "http://localhost:3000/static/media/scapulothoracic-joint-round-foto.b37cbba9.jpg",
+    "static/media/scapulothoracic-joint-round.mp4": "http://localhost:3000/static/media/scapulothoracic-joint-round.47db9db3.mp4",
+    "static/media/scapulothoracic-joint-up-foto.jpg": "http://localhost:3000/static/media/scapulothoracic-joint-up-foto.5380242e.jpg",
+    "static/media/scapulothoracic-joint-up.mp4": "http://localhost:3000/static/media/scapulothoracic-joint-up.e4e9cb76.mp4",
+    "static/media/shoulder.jpg": "http://localhost:3000/static/media/shoulder.1aff6507.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.716d304a.js",
+    "static/js/2.01388019.chunk.js",
+    "static/js/main.6a45d64b.chunk.js"
+  ]
+}
