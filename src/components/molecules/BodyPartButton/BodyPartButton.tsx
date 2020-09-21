@@ -24,6 +24,7 @@ export const BodyPartButton: React.FC<BodyPartButtonProps> = ({
 )
 const StyledText = styled(Text)`
   padding-top: 5px;
+  color: #303030;
 `
 const Button = styled.button<{ name?: string }>`
   border: none;
@@ -34,6 +35,8 @@ const Button = styled.button<{ name?: string }>`
   margin-bottom: ${({ name }) => (name ? '70px' : '50px')};
   padding: 0;
   cursor: pointer;
+  background: transparent;
+  border-bottom: 2px solid darkgreen;
 `
 const Img = styled.img`
   object-fit: contain;

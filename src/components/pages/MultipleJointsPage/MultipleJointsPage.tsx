@@ -13,9 +13,7 @@ export const MultipleJointsPage: React.FC<MultipleJointsPageProps> = ({
     <Header text="Pasirinkite tyrimo vietą" showButton={true} />
     <ImageButtonsContainer>
       {joints.map(joint => (
-        // <Column>
         <Button href={joint.href} src={joint.src} name={joint.name} />
-        // </Column>
       ))}
     </ImageButtonsContainer>
   </Content>

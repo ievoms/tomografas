@@ -19,8 +19,8 @@ export const Header: React.FC<HeaderProps> = ({ text, showButton }) => (
 
 const Container = styled(Row)`
   width: 100%;
-  border-bottom: 2px solid lightgrey;
   margin-bottom: 50px;
+  box-shadow: 0 8px 6px -6px lightgrey;
 `
 
 const TextContainer = styled(Row)`

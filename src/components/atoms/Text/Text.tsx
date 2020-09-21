@@ -5,4 +5,5 @@ export const Text = styled(Row)`
   padding: 20px 0;
   font-size: 22px;
   font-weight: 600;
+  color: darkgreen;
 `
