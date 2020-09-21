@@ -6,13 +6,18 @@ interface BodyPartButtonProps {
   href: string
   src: any
   name?: string
+  className?: string
 }
 export const BodyPartButton: React.FC<BodyPartButtonProps> = ({
   href,
   src,
   name,
+  className,
 }) => (
-  <Button onClick={() => (window.location.pathname = `/${href}/`)} name={name}>
+  <Button
+    className={className}
+    onClick={() => (window.location.pathname = `/${href}/`)}
+    name={name}>
     <Img alt="href" height={200} src={src} />
     {name && <StyledText>{name}</StyledText>}
   </Button>

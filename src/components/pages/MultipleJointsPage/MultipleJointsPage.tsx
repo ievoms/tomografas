@@ -11,19 +11,13 @@ export const MultipleJointsPage: React.FC<MultipleJointsPageProps> = ({
 }) => (
   <Content align="center" justify="center" width="100%">
     <Header text="Pasirinkite tyrimo vietą" showButton={true} />
-    <Column>
-      <ImageButtonsContainer justify="space-between">
-        {joints.map(joint => (
-          <Column>
-            <BodyPartButton
-              href={joint.href}
-              src={joint.src}
-              name={joint.name}
-            />
-          </Column>
-        ))}
-      </ImageButtonsContainer>
-    </Column>
+    <ImageButtonsContainer>
+      {joints.map(joint => (
+        // <Column>
+        <Button href={joint.href} src={joint.src} name={joint.name} />
+        // </Column>
+      ))}
+    </ImageButtonsContainer>
   </Content>
 )
 
@@ -36,4 +30,7 @@ const ImageButtonsContainer = styled(Row)`
 
 const Content = styled(Column)`
   width: 100%;
+`
+const Button = styled(BodyPartButton)`
+  margin-right: 80px;
 `
