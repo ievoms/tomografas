@@ -2,12 +2,9 @@
   "name": "ts-react-starter",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ievoms.github.io/tomografas",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/*.{ts,tsx}",
