@@ -26,8 +26,23 @@ const ImageButtonsContainer = styled(Row)`
   width: 100%;
   max-width: 1200px;
   flex-wrap: wrap;
+  @media (max-width: 1250px) {
+    max-width: 1000px;
+  }
+  @media (max-width: 1000px) {
+    max-width: 800px;
+    justify-content: center;
+  }
+  @media (max-width: 800px) {
+    max-width: 600px;
+  }
 `
 const Button = styled(BodyPartButton)`
   margin-right: 80px;
   margin-bottom: 80px;
+  @media (max-width: 1000px) {
+    /* margin-right: 40px; */
+    margin-right: 40px;
+    margin-bottom: 40px;
+  }
 `

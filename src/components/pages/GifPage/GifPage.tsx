@@ -21,9 +21,27 @@ export const GifPage: React.FC<GifPageProps> = ({ gifSrc }) => {
 const Container = styled(Column)`
   max-width: 1200px;
   width: 100%;
+  @media (max-width: 1250px) {
+    max-width: 1000px;
+  }
+  @media (max-width: 1000px) {
+    max-width: 800px;
+  }
+  @media (max-width: 800px) {
+    max-width: 600px;
+  }
 `
 const Video = styled.video`
   height: 86vh;
   max-width: 1200px;
   width: 100%;
+  @media (max-width: 1250px) {
+    max-width: 1000px;
+  }
+  @media (max-width: 1000px) {
+    max-width: 800px;
+  }
+  @media (max-width: 800px) {
+    max-width: 600px;
+  }
 `
