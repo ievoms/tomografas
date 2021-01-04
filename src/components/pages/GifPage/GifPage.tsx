@@ -1,23 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useEffect } from 'react'
 import { Column } from 'components/atoms'
-import { Header } from 'components/molecules'
+import { Header, Modal, ChangeSpeedModal } from 'components/molecules'
 import styled from '@emotion/styled'
+import ReactPlayer from 'react-player'
+import reporticon from 'resources/images/report.png'
+import speed from 'resources/images/speed.png'
+// import { Media, Player, controls, withMediaProps, utils } from 'react-media-player'
+// const { PlayPause, MuteUnmute } = controls
 
 interface GifPageProps {
   gifSrc: any
 }
 export const GifPage: React.FC<GifPageProps> = ({ gifSrc }) => {
+  const [reportModalIsOpen, setReportModalIsOpen] = useState(false)
+  const [changeSpeedModalIsOpen, setChangeSpeedModalIsOpen] = useState(false)
+  const [videoLength, setvideoLength] = useState(0)
+
   return (
     <Column align="center">
       <Header text="Sekite instrukcijas" showButton={true} />
       <Container justify="center" width="100%" align="center">
-        <Video autoPlay loop muted>
-          <source src={gifSrc} type="video/mp4" />
-        </Video>
+        <Text>
+          Judesio trukmė: <Span>{Math.round(videoLength)}</Span> s
+        </Text>
+        <Video
+          url={gifSrc}
+          playing={true}
+          loop={true}
+          playbackRate={1}
+          width="1200px"
+          height="85vh"
+          onDuration={(duration: any) => setvideoLength(duration)}
+        />
       </Container>
+      <ChangeSpeed onClick={() => setChangeSpeedModalIsOpen(true)}>
+        <Icon src={speed} />
+        <ButtonText className="text">Redaguoti spartą</ButtonText>
+      </ChangeSpeed>
+      <ReportButton onClick={() => setReportModalIsOpen(true)}>
+        <Icon src={reporticon} />
+        <ButtonText className="text">Pranešti</ButtonText>
+      </ReportButton>
+      <Modal
+        modalIsOpen={reportModalIsOpen}
+        setModalIsOpen={setReportModalIsOpen}
+      />
+      <ChangeSpeedModal
+        modalIsOpen={changeSpeedModalIsOpen}
+        setModalIsOpen={setChangeSpeedModalIsOpen}
+      />
     </Column>
   )
 }
+const Span = styled.span`
+  font-weight: 600;
+`
+const Text = styled.div`
+  align-self: flex-start;
+`
+
 const Container = styled(Column)`
   max-width: 1200px;
   width: 100%;
@@ -31,7 +73,7 @@ const Container = styled(Column)`
     max-width: 600px;
   }
 `
-const Video = styled.video`
+const Video = styled(ReactPlayer)`
   height: 86vh;
   max-width: 1200px;
   width: 100%;
@@ -43,5 +85,46 @@ const Video = styled.video`
   }
   @media (max-width: 800px) {
     max-width: 600px;
+  }
+`
+const ButtonText = styled.div`
+  display: none;
+  padding-left: 10px;
+`
+const ReportButton = styled.button`
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  :hover {
+    .text {
+      display: flex;
+    }
+  }
+`
+const Icon = styled.img`
+  height: 20px;
+  width: 20px;
+`
+
+const ChangeSpeed = styled.button`
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  border: none;
+  background-color: transparent;
+  transition: all ease-in-out 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  :hover {
+    .text {
+      display: flex;
+    }
   }
 `

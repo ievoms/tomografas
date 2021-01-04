@@ -18,7 +18,7 @@ import foot from 'resources/images/foot/foot.mp4'
 import knee from 'resources/images/knee/knee.mp4'
 import { Router, Route, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
-import { GifPage, MultipleJointsPage, Main } from 'components/pages'
+import { GifPage, MultipleJointsPage, Main,LoginPage } from 'components/pages'
 
 injectGlobal`
   @font-face {
@@ -110,6 +110,7 @@ const AppComponent: React.FC = () => {
             component={() => <MultipleJointsPage joints={shoulderJoints} />}
           />
           <Route path="/hip" component={() => <GifPage gifSrc={hip} />} />
+          <Route path="/login" component={LoginPage}/>
           <Route path="/" component={Main} />
         </Switch>
       </Router>
