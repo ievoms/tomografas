@@ -1,7 +1,7 @@
 import { config } from 'config'
 
 // const URL = "https://tomografas-be.herokuapp.com/api/"
-const URL = 'http://localhost:4000/api/'
+const URL = "https://tomografas-be.herokuapp.com/api/"
 const LOGIN_ENDPOINT = 'login'
 const REPORT_ENDPOINT = 'report'
 
