@@ -11,7 +11,7 @@ export const config: Config = {
   API_URL:
     process.env.REACT_APP_API_URL ||
     process.env.API_URL ||
-    'https://cat-fact.herokuapp.com/',
+    'https://tomografas-be.herokuapp.com/api/',
   BASE_URL: process.env.REACT_APP_BASE_URL || process.env.PUBLIC_URL || '/',
 }
 
