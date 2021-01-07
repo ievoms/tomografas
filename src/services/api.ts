@@ -4,7 +4,7 @@ const LOGIN_ENDPOINT = 'login'
 const REPORT_ENDPOINT = 'report'
 
 export const login = async (data: { username: string; password: string }) => {
-  const response = await fetch(`${URL}${LOGIN_ENDPOINT}`, {
+  const response = await fetch(`${process.env.SERVER_URL}${LOGIN_ENDPOINT}`, {
     method: 'POST',
     headers: {
       Accept: '*/*',
@@ -16,12 +16,15 @@ export const login = async (data: { username: string; password: string }) => {
   return response.json()
 }
 
-export const report = async (data: { instruction_id: string; text: string }) => {
-  const response = await fetch(`${URL}${REPORT_ENDPOINT}`, {
+export const report = async (data: {
+  instruction_id: string
+  text: string
+}) => {
+  const response = await fetch(`${process.env.SERVER_URL}${REPORT_ENDPOINT}`, {
     method: 'POST',
     headers: {
       Accept: '*/*',
-      'Authorization': `Bearer ${localStorage.getItem('token')}`, 
+      Authorization: `Bearer ${localStorage.getItem('token')}`,
       'Content-Type': 'application/json',
     },
 
