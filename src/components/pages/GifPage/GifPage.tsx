@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react'
 import { Column } from 'components/atoms'
 import { Header, Modal, ChangeSpeedModal } from 'components/molecules'
 import styled from '@emotion/styled'
@@ -11,27 +10,38 @@ import speed from 'resources/images/speed.png'
 
 interface GifPageProps {
   gifSrc: any
+  id: string
 }
-export const GifPage: React.FC<GifPageProps> = ({ gifSrc }) => {
+export const GifPage: React.FC<GifPageProps> = ({ gifSrc, id }) => {
   const [reportModalIsOpen, setReportModalIsOpen] = useState(false)
   const [changeSpeedModalIsOpen, setChangeSpeedModalIsOpen] = useState(false)
   const [videoLength, setvideoLength] = useState(0)
+  const [playbackspeed, setplaybackspeed] = useState('1')
+  const [playbackIsChanging, setplaybackIsChanging] = useState(true)
+  console.log(
+    parseFloat(playbackspeed),
+    videoLength / parseFloat(playbackspeed)
+  )
 
   return (
     <Column align="center">
       <Header text="Sekite instrukcijas" showButton={true} />
       <Container justify="center" width="100%" align="center">
         <Text>
-          Judesio trukmė: <Span>{Math.round(videoLength)}</Span> s
+          Judesio trukmė:{' '}
+          <Span>{Math.round(videoLength / parseFloat(playbackspeed))}</Span>
         </Text>
         <Video
           url={gifSrc}
-          playing={true}
+          playing={playbackIsChanging}
           loop={true}
-          playbackRate={1}
+          playbackRate={playbackspeed}
           width="1200px"
           height="85vh"
-          onDuration={(duration: any) => setvideoLength(duration)}
+          onDuration={(duration: any) => {
+            setvideoLength(duration)
+            console.log(duration)
+          }}
         />
       </Container>
       <ChangeSpeed onClick={() => setChangeSpeedModalIsOpen(true)}>
@@ -45,10 +55,13 @@ export const GifPage: React.FC<GifPageProps> = ({ gifSrc }) => {
       <Modal
         modalIsOpen={reportModalIsOpen}
         setModalIsOpen={setReportModalIsOpen}
+        id={id}
       />
       <ChangeSpeedModal
         modalIsOpen={changeSpeedModalIsOpen}
         setModalIsOpen={setChangeSpeedModalIsOpen}
+        setplaybackspeed={setplaybackspeed}
+        setplaybackIsChanging={setplaybackIsChanging}
       />
     </Column>
   )

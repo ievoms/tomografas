@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import close from 'resources/images/close.png'
 import { Column } from 'components/atoms'
 import styled from '@emotion/styled'
@@ -6,10 +6,14 @@ import styled from '@emotion/styled'
 interface ModalProps {
   modalIsOpen: boolean
   setModalIsOpen: (value: boolean) => void
+  setplaybackspeed: (value: string) => void
+  setplaybackIsChanging: (value: boolean) => void
 }
 export const ChangeSpeedModal: React.FC<ModalProps> = ({
   modalIsOpen,
   setModalIsOpen,
+  setplaybackspeed,
+  setplaybackIsChanging,
 }) => {
   const options = [
     0.1,
@@ -33,6 +37,7 @@ export const ChangeSpeedModal: React.FC<ModalProps> = ({
     1.9,
     2,
   ]
+
   return (
     <React.Fragment>
       <Overlay
@@ -44,12 +49,18 @@ export const ChangeSpeedModal: React.FC<ModalProps> = ({
           <Icon src={close} />
         </CloseButton>
         <div>Reguliuokite vaizdo įrašo atkūrimo spartą</div>
-        <Select>
+        <Select onChange={e => setplaybackspeed(e.target.value)}>
           {options.map(option => (
             <option>{option}</option>
           ))}
         </Select>
-        <SubmitButton>Išsaugoti</SubmitButton>
+        <SubmitButton
+          onClick={() => {
+            setModalIsOpen(false)
+            setplaybackIsChanging(true)
+          }}>
+          Išsaugoti
+        </SubmitButton>
       </Container>
     </React.Fragment>
   )

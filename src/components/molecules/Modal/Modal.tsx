@@ -1,16 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import close from 'resources/images/close.png'
 import { Column } from 'components/atoms'
 import styled from '@emotion/styled'
+import { report } from 'services/api'
 
 interface ModalProps {
   modalIsOpen: boolean
   setModalIsOpen: (value: boolean) => void
+  id: string
 }
 export const Modal: React.FC<ModalProps> = ({
   modalIsOpen,
   setModalIsOpen,
+  id,
 }) => {
+  const [text, settext] = useState('')
   return (
     <React.Fragment>
       <Overlay
@@ -22,8 +26,14 @@ export const Modal: React.FC<ModalProps> = ({
           <Icon src={close} />
         </CloseButton>
         <div>Palike pranešimą apie netikslumas</div>
-        <Input rows={5}></Input>
-        <SubmitButton>Siųsti</SubmitButton>
+        <Input rows={5} onChange={e => settext(e.target.value)}></Input>
+        <SubmitButton
+          onClick={() => {
+            report({ instruction_id: id, text: text })
+            setModalIsOpen(false)
+          }}>
+          Siųsti
+        </SubmitButton>
       </Container>
     </React.Fragment>
   )

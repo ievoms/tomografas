@@ -17,8 +17,9 @@ import hip from 'resources/images/hip/hip.mp4'
 import foot from 'resources/images/foot/foot.mp4'
 import knee from 'resources/images/knee/knee.mp4'
 import { Router, Route, Switch } from 'react-router-dom'
-import { createBrowserHistory } from 'history'
-import { GifPage, MultipleJointsPage, Main,LoginPage } from 'components/pages'
+import { history, INSTRUCTIONS } from 'config'
+import { GifPage, MultipleJointsPage, Main, LoginPage } from 'components/pages'
+import { PrivateRoute } from 'components/atoms'
 
 injectGlobal`
   @font-face {
@@ -70,48 +71,83 @@ const shoulderJoints = [
   },
 ]
 const AppComponent: React.FC = () => {
-  const history = createBrowserHistory()
   return (
     <div>
       <Router history={history}>
         <Switch>
-          <Route
+          <PrivateRoute
             path="/wrist/clenching-fist"
-            component={() => <GifPage gifSrc={clenchingFist} />}
+            component={() => (
+              <GifPage
+                gifSrc={clenchingFist}
+                id={INSTRUCTIONS.CLENCHING_FIST}
+              />
+            )}
           />
-          <Route
+          <PrivateRoute
             path="/wrist/radioulnar-deviation"
-            component={() => <GifPage gifSrc={radioulnarDeviation} />}
+            component={() => (
+              <GifPage
+                gifSrc={radioulnarDeviation}
+                id={INSTRUCTIONS.RADIOULNAR_DEVIATION}
+              />
+            )}
           />
-          <Route
+          <PrivateRoute
             path="/wrist/dart-throwing"
-            component={() => <GifPage gifSrc={dartThrowing} />}
+            component={() => (
+              <GifPage gifSrc={dartThrowing} id={INSTRUCTIONS.DART_THROWING} />
+            )}
           />
-          <Route
+          <PrivateRoute
             path="/wrist/prono-supination"
-            component={() => <GifPage gifSrc={pronoSupination} />}
+            component={() => (
+              <GifPage
+                gifSrc={pronoSupination}
+                id={INSTRUCTIONS.PRONO_SUPINATION}
+              />
+            )}
           />
-          <Route
+          <PrivateRoute
             path="/wrist"
             component={() => <MultipleJointsPage joints={wristJoints} />}
           />
-          <Route path="/foot" component={() => <GifPage gifSrc={foot} />} />
-          <Route path="/knee" component={() => <GifPage gifSrc={knee} />} />
-          <Route
+          <PrivateRoute
+            path="/foot"
+            component={() => <GifPage gifSrc={foot} id={INSTRUCTIONS.FOOT} />}
+          />
+          <PrivateRoute
+            path="/knee"
+            component={() => <GifPage gifSrc={knee} id={INSTRUCTIONS.KNEE} />}
+          />
+          <PrivateRoute
             path="/shoulder/scapulothoracic-joint-up"
-            component={() => <GifPage gifSrc={ScapulothoracicJointUp} />}
+            component={() => (
+              <GifPage
+                gifSrc={ScapulothoracicJointUp}
+                id={INSTRUCTIONS.SCAPULOTHORACIC_UP}
+              />
+            )}
           />
-          <Route
+          <PrivateRoute
             path="/shoulder/scapulothoracic-joint-round"
-            component={() => <GifPage gifSrc={ScapulothoracicJointRound} />}
+            component={() => (
+              <GifPage
+                gifSrc={ScapulothoracicJointRound}
+                id={INSTRUCTIONS.SCAPULOTHORACIC_ROUND}
+              />
+            )}
           />
-          <Route
+          <PrivateRoute
             path="/shoulder"
             component={() => <MultipleJointsPage joints={shoulderJoints} />}
           />
-          <Route path="/hip" component={() => <GifPage gifSrc={hip} />} />
-          <Route path="/login" component={LoginPage}/>
-          <Route path="/" component={Main} />
+          <PrivateRoute
+            path="/hip"
+            component={() => <GifPage gifSrc={hip} id={INSTRUCTIONS.HIP} />}
+          />
+          <Route path="/login" component={LoginPage} />
+          <PrivateRoute path="/" component={Main} />
         </Switch>
       </Router>
     </div>

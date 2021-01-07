@@ -1,23 +1,46 @@
-import React from 'react'
-import { Column, Row } from 'components/atoms'
-
+import React, { useState } from 'react'
+import { Column } from 'components/atoms'
 import background from 'resources/images/background.jpg'
 import icon from 'resources/images/icon.png'
-
 import styled from '@emotion/styled'
+import { login } from 'services/api'
+import { withRouter } from 'react-router-dom'
+import { history } from 'config'
 
-export const LoginPage: React.FC = () => {
+export const Login: React.FC = () => {
+  const [userName, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   return (
     <Container align="center" justify="center" width="100%">
-      <Form>
+      <Form
+        onSubmit={async e => {
+          e.preventDefault()
+          setError('')
+          const data = { username: userName, password: password }
+          const response = await login(data)
+          if (response.token) {
+            localStorage.setItem('token', response.token)
+            history.push('/')
+          } else {
+            setError(response.data)
+          }
+          return false
+        }}>
         <LogoContainer>
           <Logo src={icon} />
         </LogoContainer>
         <Title>Prisijunkite</Title>
         <Label htmlFor="name">Vartotojo vardas</Label>
-        <Input name="username"></Input>
+        <Input
+          name="username"
+          onChange={e => setUsername(e.target.value)}></Input>
         <Label htmlFor="password">Slaptažodis</Label>
-        <Input name="password" type="password"></Input>
+        <Input
+          name="password"
+          type="password"
+          onChange={e => setPassword(e.target.value)}></Input>
+        {error && <ErrorText>{error}</ErrorText>}
         <Button type="submit">Toliau</Button>
       </Form>
     </Container>
@@ -79,3 +102,9 @@ const Button = styled.button`
   background-color: #46992f;
   border: none;
 `
+const ErrorText = styled.p`
+  color: red;
+  font-size: 12px;
+`
+
+export const LoginPage = withRouter(Login)
