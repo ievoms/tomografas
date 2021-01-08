@@ -10,11 +10,7 @@
     "lint": "eslint ./src/**/*.{ts,tsx}",
     "lint:fix": "eslint ./src/**/*.{ts,tsx} --fix",
     "lint:styles": "stylelint './src/**/*.{ts,tsx}'",
-    "sonar": "sonar-scanner",
-    "storybook": "start-storybook -p 6006",
-    "storybook:build": "build-storybook",
     "generate": "hygen",
-    "generate:redux": "yarn generate redux-crud new",
     "postgenerate": "eslint ./src/**/*.{ts,tsx} --fix"
   },
   "lint-staged": {
@@ -42,8 +38,6 @@
     "react-player": "^2.7.2",
     "react-redux": "7.2.0",
     "react-router-dom": "^5.2.0",
-    "redux": "4.0.5",
-    "redux-observable": "1.2.0",
     "typescript": "3.9.3"
   },
   "devDependencies": {
@@ -58,9 +52,7 @@
     "@types/node": "12.12.7",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.4",
-    "@types/react-redux": "7.1.9",
     "@types/react-router-dom": "^5.1.5",
-    "@types/storybook__react": "5.2.1",
     "babel-loader": "8.1.0",
     "babel-plugin-emotion": "10.0.33",
     "babel-plugin-jsx-pragmatic": "1.0.2",
@@ -77,7 +69,6 @@
     "react-app-rewired": "2.1.6",
     "react-scripts": "3.4.1",
     "sonar-scanner": "3.1.0",
-    "storybook-addon-emotion-theme": "2.1.1",
     "stylelint": "13.5.0",
     "stylelint-config-recommended": "3.0.0",
     "stylelint-config-standard": "20.0.0",
