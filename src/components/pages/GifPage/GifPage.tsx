@@ -5,8 +5,6 @@ import styled from '@emotion/styled'
 import ReactPlayer from 'react-player'
 import reporticon from 'resources/images/report.png'
 import speed from 'resources/images/speed.png'
-// import { Media, Player, controls, withMediaProps, utils } from 'react-media-player'
-// const { PlayPause, MuteUnmute } = controls
 
 interface GifPageProps {
   gifSrc: any
@@ -16,20 +14,15 @@ export const GifPage: React.FC<GifPageProps> = ({ gifSrc, id }) => {
   const [reportModalIsOpen, setReportModalIsOpen] = useState(false)
   const [changeSpeedModalIsOpen, setChangeSpeedModalIsOpen] = useState(false)
   const [videoLength, setvideoLength] = useState(0)
-  const [playbackspeed, setplaybackspeed] = useState('1')
+  const [playbackspeed, setplaybackspeed] = useState(1)
   const [playbackIsChanging, setplaybackIsChanging] = useState(true)
-  console.log(
-    parseFloat(playbackspeed),
-    videoLength / parseFloat(playbackspeed)
-  )
 
   return (
     <Column align="center">
       <Header text="Sekite instrukcijas" showButton={true} />
       <Container justify="center" width="100%" align="center">
         <Text>
-          Judesio trukmė:{' '}
-          <Span>{Math.round(videoLength / parseFloat(playbackspeed))}</Span>
+          Judesio trukmė: <Span>{Math.round(videoLength / playbackspeed)}</Span>
         </Text>
         <Video
           url={gifSrc}
@@ -38,10 +31,7 @@ export const GifPage: React.FC<GifPageProps> = ({ gifSrc, id }) => {
           playbackRate={playbackspeed}
           width="1200px"
           height="85vh"
-          onDuration={(duration: any) => {
-            setvideoLength(duration)
-            console.log(duration)
-          }}
+          onDuration={(duration: any) => setvideoLength(duration)}
         />
       </Container>
       <ChangeSpeed onClick={() => setChangeSpeedModalIsOpen(true)}>
@@ -98,6 +88,9 @@ const Video = styled(ReactPlayer)`
   }
   @media (max-width: 800px) {
     max-width: 600px;
+  }
+  @media (max-width: 600px) {
+    max-width: 400px;
   }
 `
 const ButtonText = styled.div`

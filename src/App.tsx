@@ -8,7 +8,7 @@ import radioulnarDeviationFoto from 'resources/images/wrist/radioulnar-deviation
 import dartThrowing from 'resources/images/wrist/dart-throwing.mp4'
 import dartThrowingFoto from 'resources/images/wrist/dart-throwing-foto.jpg'
 import pronoSupination from 'resources/images/wrist/prono-supination.mp4'
-import pronoSupinationFoto from 'resources/images/wrist/prono-supination-foto.jpg'
+// import pronoSupinationFoto from 'resources/images/wrist/prono-supination-foto.jpg'
 import ScapulothoracicJointRound from 'resources/images/shoulder/scapulothoracic-joint-round.mp4'
 import ScapulothoracicJointRoundFoto from 'resources/images/shoulder/scapulothoracic-joint-round-foto.jpg'
 import ScapulothoracicJointUp from 'resources/images/shoulder/scapulothoracic-joint-up.mp4'
@@ -52,6 +52,7 @@ const wristJoints = [
     href: 'wrist/dart-throwing',
     src: dartThrowingFoto,
   },
+  //Unnecessary at this point, but will be used in the future
   // {
   //   name: 'Prono-supination',
   //   href: 'wrist/prono-supination',

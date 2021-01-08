@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import close from 'resources/images/close.png'
 import { Column } from 'components/atoms'
 import styled from '@emotion/styled'
@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 interface ModalProps {
   modalIsOpen: boolean
   setModalIsOpen: (value: boolean) => void
-  setplaybackspeed: (value: string) => void
+  setplaybackspeed: (value: number) => void
   setplaybackIsChanging: (value: boolean) => void
 }
 export const ChangeSpeedModal: React.FC<ModalProps> = ({
@@ -49,9 +49,9 @@ export const ChangeSpeedModal: React.FC<ModalProps> = ({
           <Icon src={close} />
         </CloseButton>
         <div>Reguliuokite vaizdo įrašo atkūrimo spartą</div>
-        <Select onChange={e => setplaybackspeed(e.target.value)}>
+        <Select onChange={e => setplaybackspeed(parseFloat(e.target.value))}>
           {options.map(option => (
-            <option>{option}</option>
+            <option key={`option-${option}`}>{option}</option>
           ))}
         </Select>
         <SubmitButton
@@ -93,13 +93,6 @@ const Container = styled(Column)<{ modalIsOpen: boolean }>`
   transform: translateY(-50%);
 `
 
-const Input = styled.textarea`
-  height: 150px;
-  width: 100%;
-  border-radius: 4px;
-  border: 1px solid lightgray;
-  margin-top: 15px;
-`
 const CloseButton = styled.button`
   height: 30px;
   width: 30px;
